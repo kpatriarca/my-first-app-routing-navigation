@@ -1,0 +1,13 @@
+<section class="skills-section">
+  <h2>Technical Stack</h2>
+
+  <ul>
+    @for (skill of skills(); track skill) {
+      <li>
+        <button (click)="selectSkill(skill)">
+          {{ skill }}
+        </button>
+      </li>
+    }
+  </ul>
+</section>

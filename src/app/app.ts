@@ -1,14 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Header } from './header/header';
 import { ProfileCard } from './profile-card/profile-card';
+import { Skills } from './skills/skills';
+import { Footer } from './footer/footer';
+import { Proficiency } from './proficiency';
 
 @Component({
-  imports: [RouterOutlet, ProfileCard],
+  imports: [Header, ProfileCard, Skills, Footer],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
+
 export class App {
+  proficiencies: Proficiency[] = [
+  { tool: 'Visual Studio Code', level: 'Advanced' },
+  { tool: 'Git and GitHub', level: 'Intermediate' },
+  { tool: 'Node.js and npm', level: 'Intermediate' },
+  { tool: 'Angular CLI', level: 'Beginner' }
+];
+
   fullName = ' Patriarca, Kenneth Euan Sean T.';
   location = 'Angeles City, Pampanga';
   email = 'kestptr@gmail.com';
@@ -50,11 +61,9 @@ export class App {
     'Always focused on clean UI + maintainable code'
   ];
 
-  message = 'Welcome to my profile!';
-  clickCount = 0;
+  message = 'Click any skill above to select it.';
 
-  showMessage() {
-    this.clickCount++;
-    this.message = `You clicked the button ${this.clickCount} time(s).`;
+  onSkillSelected(skill: string) {
+  this.message = `You selected: ${skill}`;
   }
 }

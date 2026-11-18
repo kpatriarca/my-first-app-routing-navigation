@@ -1,43 +1,23 @@
 <main class="resume">
   <div class="portfolio-card">
 
-    <header class="intro">
-
-    <div class="intro-details">
-      <h1>{{ fullName }}</h1>
-
-      <p>
-        {{ location }} |
-        {{ phone }} |
-        <a [href]="'mailto:' + email">{{ email }}</a>
-      </p>
-    </div>
-
-    <div class="intro-logo">
-      <img src="/logo1.png" alt="Personal Logo">
-    </div>
-
-  </header>
-
-    <section>
-      <h2>Personal Profile</h2>
-      <p>{{ profile }}</p>
-    </section>
+    <app-header
+      [fullName]="fullName"
+      [location]="location"
+      [email]="email"
+      [phone]="phone"
+      [profile]="profile">
+    </app-header>
 
     <app-profile-card></app-profile-card>
 
-    <section>
-      <h2>Technical Stack</h2>
-
-      <ul>
-        @for (skill of skills; track skill) {
-          <li>{{ skill }}</li>
-        }
-      </ul>
-    </section>
+    <app-skills
+      [skills]="skills"
+      (skillSelected)="onSkillSelected($event)">
+    </app-skills>
 
     <section>
-      <h2>Soft Skills</h2>
+      <h2 class="section-title">Soft Skills</h2>
 
       <ul>
         @for (skill of softskills; track skill) {
@@ -47,7 +27,7 @@
     </section>
 
     <section>
-      <h2>What I Do Best</h2>
+      <h2 class="section-title">What I Do Best</h2>
 
       <ul>
         @for (skill of dobest; track skill) {
@@ -57,14 +37,14 @@
     </section>
 
     <section class="interaction">
-      <h2>Angular Interaction</h2>
-
+      <h2 class="section-title">Angular Interaction</h2>
       <p>{{ message }}</p>
-
-      <button (click)="showMessage()">
-        Click Me
-      </button>
     </section>
+
+    <app-footer
+      [fullName]="fullName"
+      [proficiencies]="proficiencies">
+    </app-footer>
 
   </div>
 </main>
