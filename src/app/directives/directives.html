@@ -1,0 +1,91 @@
+<main class="resume">
+  <h1>Angular Directives</h1>
+
+  <p class="lead">
+    This page demonstrates Angular control-flow blocks:
+    &#64;if, &#64;for, and &#64;switch.
+  </p>
+
+  <section class="demo">
+    <h2 class="section-title">1. &#64;if — Conditional Rendering</h2>
+
+    <button type="button" (click)="toggleProjects()">
+      {{ showProjects ? 'Hide Projects' : 'Show Projects' }}
+    </button>
+
+    @if (showProjects) {
+      <p class="ok">My projects are currently visible.</p>
+    } @else {
+      <p class="muted">My projects are currently hidden.</p>
+    }
+  </section>
+
+  <section class="demo">
+    <h2 class="section-title">2. &#64;for — Repeating Elements</h2>
+
+    @if (showProjects) {
+      <ul class="project-list">
+        @for (project of projects; track project.name; let i = $index) {
+          <li>
+            <strong>{{ project.name }}</strong>
+            <span>{{ project.tech }}</span>
+
+            @if (i === 0) {
+              <span class="tag">Latest</span>
+            }
+          </li>
+        } @empty {
+          <li>No projects available.</li>
+        }
+      </ul>
+    } @else {
+      <p class="muted">Show the projects to view the list.</p>
+    }
+
+    <p class="hint">
+      The &#64;for block loops through the projects array and displays each project.
+    </p>
+  </section>
+
+  <section class="demo">
+    <h2 class="section-title">3. &#64;switch — Multiple Conditions</h2>
+
+    <label for="level">Filter by proficiency level:</label>
+
+    <select id="level" [(ngModel)]="selectedLevel">
+      <option value="All">All Levels</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+
+    <div class="levels">
+      @for (item of filteredProficiencies(); track item.tool) {
+        <div class="level">
+          <strong>{{ item.tool }}</strong>
+
+          @switch (item.level) {
+            @case ('Beginner') {
+              <span class="beginner">Beginner</span>
+            }
+            @case ('Intermediate') {
+              <span class="intermediate">Intermediate</span>
+            }
+            @case ('Advanced') {
+              <span class="advanced">Advanced</span>
+            }
+            @default {
+              <span>Not specified</span>
+            }
+          }
+        </div>
+      } @empty {
+        <p class="muted">No proficiency records found.</p>
+      }
+    </div>
+
+    <p class="hint">
+      The &#64;switch block displays a different label depending on each item's proficiency level.
+    </p>
+  </section>
+</main>

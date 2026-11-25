@@ -1,50 +1,28 @@
-<main class="resume">
-  <div class="portfolio-card">
+<nav class="topnav">
+  <a class="brand" routerLink="/">My CV</a>
 
-    <app-header
-      [fullName]="fullName"
-      [location]="location"
-      [email]="email"
-      [phone]="phone"
-      [profile]="profile">
-    </app-header>
+  <ul>
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+    </li>
 
-    <app-profile-card></app-profile-card>
+    <li>
+      <a routerLink="/data-binding" routerLinkActive="active">
+        Data Binding
+      </a>
+    </li>
 
-    <app-skills
-      [skills]="skills"
-      (skillSelected)="onSkillSelected($event)">
-    </app-skills>
+    <li>
+      <a routerLink="/directives" routerLinkActive="active">
+        Directives
+      </a>
+    </li>
+  </ul>
+</nav>
 
-    <section>
-      <h2 class="section-title">Soft Skills</h2>
-
-      <ul>
-        @for (skill of softskills; track skill) {
-          <li>{{ skill }}</li>
-        }
-      </ul>
-    </section>
-
-    <section>
-      <h2 class="section-title">What I Do Best</h2>
-
-      <ul>
-        @for (skill of dobest; track skill) {
-          <li>{{ skill }}</li>
-        }
-      </ul>
-    </section>
-
-    <section class="interaction">
-      <h2 class="section-title">Angular Interaction</h2>
-      <p>{{ message }}</p>
-    </section>
-
-    <app-footer
-      [fullName]="fullName"
-      [proficiencies]="proficiencies">
-    </app-footer>
-
-  </div>
-</main>
+<router-outlet />

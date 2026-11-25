@@ -1,50 +1,49 @@
-
-* {
-  box-sizing: border-box;
-}
-
-.resume {
-  min-height: 100vh;
-  padding: 35px 20px;
-}
-
-.portfolio-card {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 35px;
-  background: rgb(216, 206, 206);
-  border: 1px solid #d7def0;
-  border-radius: 22px;
-  box-shadow: 0 8px 25px rgba(20, 40, 90, 0.12);
-}
-
-app-profile-card {
-  display: block;
-  margin: 25px 0;
-}
-
-.interaction {
-  margin-bottom: 0;
-}
-
-.portfolio-card > section ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   gap: 8px 24px;
-  padding-left: 22px;
+  padding: 12px 32px;
+  background: #11245e;
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.topnav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topnav ul a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #f2e8ec;
+  text-decoration: none;
+}
+
+.topnav ul a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.topnav ul a.active {
+  background: #fff;
+  color: #11245e;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
-  .resume {
-    padding: 15px 10px;
-  }
-
-  .portfolio-card {
-    padding: 20px;
-    border-radius: 15px;
-  }
-
-  .portfolio-card > section ul {
-    grid-template-columns: 1fr;
+  .topnav {
+    padding: 12px 18px;
   }
 }

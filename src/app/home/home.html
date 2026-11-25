@@ -1,0 +1,50 @@
+<main class="resume">
+  <div class="portfolio-card">
+
+    <app-header
+      [fullName]="fullName"
+      [location]="location"
+      [email]="email"
+      [phone]="phone"
+      [profile]="profile">
+    </app-header>
+
+    <app-profile-card></app-profile-card>
+
+    <app-skills
+      [skills]="skills"
+      (skillSelected)="onSkillSelected($event)">
+    </app-skills>
+
+    <section>
+      <h2 class="section-title">Soft Skills</h2>
+
+      <ul>
+        @for (skill of softskills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">What I Do Best</h2>
+
+      <ul>
+        @for (skill of dobest; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </section>
+
+    <section class="interaction">
+      <h2 class="section-title">Angular Interaction</h2>
+      <p>{{ message }}</p>
+    </section>
+
+    <app-footer
+      [fullName]="fullName"
+      [proficiencies]="proficiencies">
+    </app-footer>
+
+  </div>
+</main>
